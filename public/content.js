@@ -1,13 +1,16 @@
-async function pickColor() {
+document.addEventListener("click", async (e) => {
+  if (!e.shiftKey) return; // Only trigger when Shift is held
+
   try {
     const eyeDropper = new EyeDropper();
     const result = await eyeDropper.open();
     navigator.clipboard.writeText(result.sRGBHex);
     alert(`Color copied: ${result.sRGBHex}`);
   } catch (err) {
-    console.error("Color pick failed", err);
+    console.error("Color pick failed:", err);
+    alert("Color picker failed. Make sure you are on HTTPS and using Chrome.");
   }
-}
+});
 
 
 document.addEventListener("mouseover", function(e) {
