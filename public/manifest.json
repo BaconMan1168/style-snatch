@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "StyleSnatch",
+  "version": "1.0",
+  "description": "Grab fonts, colors, and element sizes easily",
+  "permissions": ["activeTab", "scripting", "contextMenus"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
