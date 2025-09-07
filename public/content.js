@@ -1,14 +1,20 @@
 document.addEventListener("click", async (e) => {
-  if (!e.shiftKey) return; // Only trigger when Shift is held
+  if (!e.shiftKey) return; // only trigger on Shift+click
 
   try {
     const eyeDropper = new EyeDropper();
     const result = await eyeDropper.open();
-    navigator.clipboard.writeText(result.sRGBHex);
-    alert(`Color copied: ${result.sRGBHex}`);
+
+    // Send picked color to background
+    alert("sent clr msg")
+    chrome.runtime.sendMessage({
+      type: "COLOR_PICKED",
+      payload: { color: result.sRGBHex }
+    });
+
+    console.log("Color picked:", result.sRGBHex);
   } catch (err) {
-    console.error("Color pick failed:", err);
-    alert("Color picker failed. Make sure you are on HTTPS and using Chrome.");
+    console.error("Eyedropper failed:", err);
   }
 });
 
