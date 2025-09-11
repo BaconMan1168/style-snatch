@@ -1,13 +1,13 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext } from "react-router"
 
 export default function FontPage(){
-    const { fonts, colors } = useOutletContext();
+    const { fonts, colors, colorsAndFonts } = useOutletContext();
     
     return (
         <div>
-            <h1>Fonts</h1>
+            <h2>Fonts</h2>
             <ul>
-                {fonts && fonts.map((f, i) => <li key={i}>{f.font} ({f.size})</li>)}
+                {colorsAndFonts[1] && fonts.map((f, i) => <li key={i}>{f.font} ({f.size})</li>)}
             </ul>
         </div>
     )

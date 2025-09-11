@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, Link } from "react-router"
 
 function App({fonts, colors}) {
   const colorsAndFonts = [Array.isArray(colors), Array.isArray(fonts)];
@@ -7,6 +7,9 @@ function App({fonts, colors}) {
   return (
     <main>
       <h1>StyleSnatch</h1>
+
+      <Outlet context={{fonts, colors, colorsAndFonts}}></Outlet>
+
       <Link to="/colors">
         <button>Show Saved Colors</button>
       </Link>
@@ -14,7 +17,7 @@ function App({fonts, colors}) {
         <button>Show Saved Fonts</button>
       </Link>
 
-      <Outlet context={{fonts, colors}}></Outlet>
+      
     </main>
   );
 }
