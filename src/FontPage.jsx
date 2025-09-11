@@ -1,11 +1,13 @@
 import { useOutletContext } from "react-router"
+import { useState } from "react"
 
 export default function FontPage(){
     const { fonts, colors, colorsAndFonts } = useOutletContext();
+    const [storedFonts, setStoredFonts] = useState(fonts);
 
-    function handleDelete(){
+    function handleFullDelete(){
         chrome.storage.local.remove("fonts", () => {
-            console.log("removed fonts");
+            setStoredFonts([]);
         });
     }
     
@@ -13,9 +15,9 @@ export default function FontPage(){
         <div>
             <h2>Fonts</h2>
             <ul>
-                {colorsAndFonts[1] && fonts.map((f, i) => <li key={i}>{f.font} ({f.size})</li>)}
+                {colorsAndFonts[1] && storedFonts.map((f, i) => <li key={i}>{f.font} ({f.size})</li>)}
             </ul>
-            <button onClick={handleDelete}>Clear Saved Fonts</button>
+            <button onClick={handleFullDelete}>Clear Saved Fonts</button>
         </div>
     )
 }
