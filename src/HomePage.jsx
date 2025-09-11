@@ -1,6 +1,8 @@
+import styles from "./styles.module.css"
+
 export default function HomePage(){
     return (
-        <div>
+        <div className={styles.home}>
             <div>
                 <h2>Who this is for</h2>
                 <p>
