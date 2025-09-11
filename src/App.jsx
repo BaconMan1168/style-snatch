@@ -10,13 +10,18 @@ function App({fonts, colors}) {
 
       <Outlet context={{fonts, colors, colorsAndFonts}}></Outlet>
 
-      <Link to="/colors">
-        <button>Show Saved Colors</button>
-      </Link>
-      <Link to="/fonts">
-        <button>Show Saved Fonts</button>
-      </Link>
-
+      <nav>
+        <Link to="/colors">
+          <button>Show Saved Colors</button>
+        </Link>
+        <Link to="/fonts">
+          <button>Show Saved Fonts</button>
+        </Link>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
+      </nav>
+      
       
     </main>
   );
