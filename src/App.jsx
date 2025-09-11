@@ -1,14 +1,11 @@
 import { Outlet, Link } from "react-router"
 
-function App({fonts, colors}) {
-  const colorsAndFonts = [Array.isArray(colors), Array.isArray(fonts)];
-
-
+function App() {
   return (
     <main>
       <h1>StyleSnatch</h1>
 
-      <Outlet context={{fonts, colors, colorsAndFonts}}></Outlet>
+      <Outlet></Outlet>
 
       <nav>
         <Link to="/colors">
