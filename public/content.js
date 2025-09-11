@@ -1,15 +1,14 @@
 document.addEventListener("click", async (e) => {
-  if (!e.shiftKey) return; // only trigger on Shift+click
+  if (!e.shiftKey) return;
 
   try {
     const eyeDropper = new EyeDropper();
     const result = await eyeDropper.open();
 
-    // Send picked color to background
-    alert("sent clr msg")
-    chrome.runtime.sendMessage({
-      type: "COLOR_PICKED",
-      payload: { color: result.sRGBHex }
+    // Store color directly in chrome.storage.local
+    chrome.storage.local.get({ colors: [] }, (res) => {
+      const updated = [...res.colors, result.sRGBHex];
+      chrome.storage.local.set({ colors: updated });
     });
 
     console.log("Color picked:", result.sRGBHex);
@@ -19,6 +18,7 @@ document.addEventListener("click", async (e) => {
 });
 
 
+//tentative
 document.addEventListener("mouseover", function(e) {
   const el = e.target;
   const rect = el.getBoundingClientRect();

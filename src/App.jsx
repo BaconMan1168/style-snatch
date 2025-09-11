@@ -1,30 +1,20 @@
-import { useState, useEffect } from 'react'
+function App({fonts, colors}) {
+  const colorsAndFonts = [Array.isArray(colors), Array.isArray(fonts)];
 
-
-function App() {
-  const [colors, setColors] = useState([]);
-  const [fonts, setFonts] = useState([]);
-
-  useEffect(() => {
-    const listener = (msg) => {
-      if (msg.type === "FONT_GRABBED") {
-        setFonts(prev => [...prev, msg.payload]);
-      }
-      if (msg.type === "COLOR_PICKED") {
-        setColors(prev => [...prev, msg.payload.color]);
-      }
-    };
-    chrome.runtime.onMessage.addListener(listener);
-
-    return () => chrome.runtime.onMessage.removeListener(listener);
-  }, []);
 
   return (
     <main>
-      <p>{colors}</p>
-      <p>{fonts}</p>
+      <h2>Colors:</h2>
+      <ul>
+        {colorsAndFonts[0] && colors.map((c, i) => <li key={i}>{c}</li>)}
+      
+      </ul>
+      <h2>Fonts:</h2>
+      <ul>
+        {colorsAndFonts[1] && fonts.map((f, i) => <li key={i}>{f.font} ({f.size})</li>)}
+      </ul>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

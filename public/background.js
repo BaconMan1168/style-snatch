@@ -1,4 +1,3 @@
-// Create context menu on install
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "grab-font",
@@ -7,7 +6,6 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-// When context menu is clicked
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "grab-font") {
     chrome.scripting.executeScript({
@@ -21,8 +19,7 @@ function grabFontInfo() {
   const selection = window.getSelection();
   if (!selection || selection.rangeCount === 0) return;
 
-  const range = selection.getRangeAt(0);
-  const el = range.startContainer.parentElement; // element containing the start of selection
+  const el = selection.getRangeAt(0).startContainer.parentElement;
   if (!el) return;
 
   const styles = window.getComputedStyle(el);
@@ -32,12 +29,15 @@ function grabFontInfo() {
     size: styles.fontSize,
     weight: styles.fontWeight,
     color: styles.color,
-    text: selection.toString() // optionally store selected text
+    text: selection.toString()
   };
 
-  chrome.runtime.sendMessage({ type: "FONT_GRABBED", payload: fontInfo });
+  // Store directly in chrome.storage.local
+  chrome.storage.local.get({ fonts: [] }, (res) => {
+    const updated = [...res.fonts, fontInfo];
+    chrome.storage.local.set({ fonts: updated });
+  });
 
-  // Optional: copy to clipboard
   navigator.clipboard.writeText(`
 Font: ${fontInfo.font}
 Size: ${fontInfo.size}

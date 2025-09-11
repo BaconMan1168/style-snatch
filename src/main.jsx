@@ -2,8 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+chrome.storage.local.get(null, data => {
+  createRoot(document.getElementById('root')).render(
+    <StrictMode>
+      <App {...data} />
+    </StrictMode>
+  )
+})
