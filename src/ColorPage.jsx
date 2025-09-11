@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import ColorItem from "./ColorItem.jsx"
+import styles from "./styles.module.css"
 
 export default function ColorPage() {
   const [storedColors, setStoredColors] = useState([]);
@@ -27,7 +28,7 @@ export default function ColorPage() {
   return (
     <div>
       <h2>Colors</h2>
-      <div>
+      <div className={styles.colorPage}>
         {storedColors.map((c, i) => (
           <ColorItem
             key={i}

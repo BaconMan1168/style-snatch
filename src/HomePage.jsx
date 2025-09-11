@@ -1,24 +1,45 @@
 import styles from "./styles.module.css"
 
+import Icon from '@mdi/react';
+import { mdiPaletteOutline, mdiFormatSize, mdiMonitorShimmer} from '@mdi/js';
+
+
+
+
+
 export default function HomePage(){
     return (
         <div className={styles.home}>
-            <div>
-                <h2>Who this is for</h2>
+            <div className={styles.card}>
+                <div>
+                    <Icon path={mdiPaletteOutline} size={1} />
+                    <h2>Colors</h2>
+                </div>
                 <p>
-                    This tool is built for software engineers who are not UX or design experts 
-                    but still need to make quick, informed style decisions. Instead of guessing 
-                    olors or fonts, you can instantly grab the fonts and color palette of any webpage.
+                    Grab and save colors with ease.
                 </p>
             </div>
-            <div>
-                <h2>Features</h2>
+
+            <div className={styles.card}>
+               <div>
+                <Icon path={mdiFormatSize} size={1} />
+                <h2>Fonts</h2>
+               </div>
                 <p>
-                    With just a few steps, this extension shows you all the fonts and color codes used on a page. 
-                    To grab a font, simply highlight any text, right-click, and choose “Grab Font.” 
-                    To capture a color, hold Shift and click anywhere to open the eyedropper tool. 
+                    Capture font styles instantly.
                 </p>
             </div>
+
+            <div className={styles.card}>
+                <div>
+                    <Icon path={mdiMonitorShimmer} size={1} />
+                    <h2>Minimal</h2>
+                </div>
+                <p>
+                    Lightweight and distraction-free.
+                </p>
+            </div>
+
         </div>
     ) 
 }
