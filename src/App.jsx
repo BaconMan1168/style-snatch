@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <h1>StyleSnatch</h1>
-      
+
       <main>
         <Outlet className={styles.outlet}></Outlet>
       </main>
@@ -26,5 +26,11 @@ function App() {
     
   );
 }
+
+/*
+1. styling for other pages
+2. naming feature
+3. css code
+*/
 
 export default App;
