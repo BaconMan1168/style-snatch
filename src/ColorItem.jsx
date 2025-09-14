@@ -19,7 +19,7 @@ export default function ColorItem({color, handleDelete}){
         <div className={styles.colorCard}>
             <div style={colorSquare}></div>
             <p>{color}</p>
-            <input type="text" placeholder="e.g header-color" className={styles.underlineInput} value={inputText} onChange={handleChange} />
+            <input type="text" placeholder="e.g header-color" className={styles.colorUnderlineInput} value={inputText} onChange={handleChange} />
             <button className={styles.btn} onClick={handleDelete}>Delete Color</button>
         </div>
     )

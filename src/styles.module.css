@@ -45,6 +45,7 @@ nav {
     background-color: #f7f6f1;
     border: 2px solid #EBD9D1;
     transition: transform 0.2s ease-in, background-color 0.2s ease-in;
+    flex-shrink: 0;
 }
 
 .btn:hover {
@@ -57,8 +58,7 @@ nav {
     background-color: #e1e0db;
 }
  
-.colorPage,
-.fontPage {
+.colorPage {
     padding-top:8px;
     padding-bottom:8px;
     display:flex;
@@ -77,17 +77,55 @@ nav {
     border-radius:15px;
 }
 
-.underlineInput {
+.fontPage {
+    padding-top:8px;
+    padding-bottom:8px;
+    display:flex;
+    flex-direction: column;
+    gap:6px;
+    max-height: 250px;
+    overflow-y: auto; 
+}
+
+.fontCard {
+    width: 100%;
+    padding:8px;
+    box-shadow: 0 4px 12px #00000014;
+    display: flex;
+    gap:6px;
+    border-radius:15px;
+    align-items: center;
+
+}
+
+.fontName{
+    font-size:16px;
+}
+
+
+.colorUnderlineInput {
   border: none;             
   border-bottom: 2px solid #333;  
   outline: none;            
   padding: 4px 0;           
-  font-size: 10px;
+  font-size: 13px;
   background-color: transparent; 
   width: 100%;              
   transition: border-color 0.2s;
 }
 
-.underlineInput:focus {
+.fontUnderlineInput {
+  border: none;             
+  border-bottom: 2px solid #333;  
+  outline: none;            
+  padding: 4px 0;           
+  font-size: 13px;
+  background-color: transparent; 
+  width: 100%;              
+  transition: border-color 0.2s;
+}
+
+.colorUnderlineInput:focus,
+.fontUnderlineInput:focus {
   border-bottom-color: #007bff; 
 }
