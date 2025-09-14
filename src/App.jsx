@@ -13,13 +13,13 @@ function App() {
 
       <nav>
           <Link to="/colors">
-            <button>Show Saved Colors</button>
+            <button className={styles.btn}>Show Saved Colors</button>
           </Link>
           <Link to="/fonts">
-            <button>Show Saved Fonts</button>
+            <button className={styles.btn}>Show Saved Fonts</button>
           </Link>
           <Link to="/">
-            <button>Home</button>
+            <button className={styles.btn}>Home</button>
           </Link>
         </nav>
     </>

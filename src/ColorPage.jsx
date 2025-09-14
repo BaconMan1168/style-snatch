@@ -37,7 +37,7 @@ export default function ColorPage() {
           />
         ))}
       </div>
-      <button onClick={handleFullDelete}>Clear Saved Colors</button>
+      <button className={styles.btn} onClick={handleFullDelete}>Clear Saved Colors</button>
     </div>
   );
 }

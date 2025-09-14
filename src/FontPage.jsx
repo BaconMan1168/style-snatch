@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import FontItem from "./FontItem.jsx"
+import styles from "./styles.module.css"
 
 export default function FontPage() {
   const [storedFonts, setStoredFonts] = useState([]);
@@ -27,7 +28,7 @@ export default function FontPage() {
   return (
     <div>
       <h2>Fonts</h2>
-      <ul>
+      <div className={styles.fontPage}>
         {storedFonts.map((f, i) => (
           <FontItem
             key={i}
@@ -35,8 +36,8 @@ export default function FontPage() {
             handleDelete={() => handleSingleDelete(i)}
           />
         ))}
-      </ul>
-      <button onClick={handleFullDelete}>Clear Saved Fonts</button>
+      </div>
+      <button className={styles.btn} onClick={handleFullDelete}>Clear Saved Fonts</button>
     </div>
   );
 }
