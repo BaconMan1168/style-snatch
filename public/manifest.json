@@ -3,7 +3,7 @@
   "name": "StyleSnatch",
   "version": "1.0",
   "description": "Grab fonts and colors from websites easily",
-  "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
+  "permissions": ["scripting", "contextMenus", "storage"],
   "action": {
     "default_popup": "index.html"
   },
