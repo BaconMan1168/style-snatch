@@ -12,14 +12,14 @@ function App() {
       </main>
 
       <nav>
+          <Link to="/">
+            <button className={styles.btn}>Home</button>
+          </Link>
           <Link to="/colors">
             <button className={styles.btn}>Show Saved Colors</button>
           </Link>
           <Link to="/fonts">
             <button className={styles.btn}>Show Saved Fonts</button>
-          </Link>
-          <Link to="/">
-            <button className={styles.btn}>Home</button>
           </Link>
         </nav>
     </>
