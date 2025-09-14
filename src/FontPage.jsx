@@ -37,7 +37,14 @@ export default function FontPage() {
           />
         ))}
       </div>
-      <button className={styles.btn} onClick={handleFullDelete}>Clear Saved Fonts</button>
+
+      {storedFonts.length > 0 ? (
+        <button className={styles.btn} onClick={handleFullDelete}>
+            Clear Saved Fonts
+        </button>
+        ) : (
+        <h2 className={styles.emptyPage}>Empty. Add Fonts!</h2>
+        )}
     </div>
   );
 }

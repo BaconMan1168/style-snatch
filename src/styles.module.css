@@ -57,6 +57,10 @@ nav {
     transform: scale(0.95);
     background-color: #e1e0db;
 }
+
+.emptyPage {
+    text-align: center;
+}
  
 .colorPage {
     padding-top:8px;

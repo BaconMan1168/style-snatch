@@ -37,7 +37,14 @@ export default function ColorPage() {
           />
         ))}
       </div>
-      <button className={styles.btn} onClick={handleFullDelete}>Clear Saved Colors</button>
+
+      {storedColors.length > 0 ? (
+        <button className={styles.btn} onClick={handleFullDelete}>
+            Clear Saved Colors
+        </button>
+        ) : (
+        <h2 className={styles.emptyPage}>Empty. Add colors!</h2>
+        )}
     </div>
   );
 }
