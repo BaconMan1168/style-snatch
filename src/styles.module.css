@@ -76,3 +76,18 @@ nav {
     gap:6px;
     border-radius:15px;
 }
+
+.underlineInput {
+  border: none;             
+  border-bottom: 2px solid #333;  
+  outline: none;            
+  padding: 4px 0;           
+  font-size: 10px;
+  background-color: transparent; 
+  width: 100%;              
+  transition: border-color 0.2s;
+}
+
+.underlineInput:focus {
+  border-bottom-color: #007bff; 
+}
