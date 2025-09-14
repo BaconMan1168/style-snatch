@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "StyleSnatch",
   "version": "1.0",
-  "description": "Grab fonts, colors, and element sizes easily",
+  "description": "Grab fonts and colors from websites easily",
   "permissions": ["activeTab", "scripting", "contextMenus", "storage"],
   "action": {
     "default_popup": "index.html"
