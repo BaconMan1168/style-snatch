@@ -8,9 +8,11 @@ export default function FontItem({font, handleDelete}){
         setInputText(e.target.value);
     }
 
+    const firstFont = font.font.split(",")[0].trim().replace(/^['"]|['"]$/g, "");
+
     return (
         <div className={styles.fontCard}>
-            <p className={styles.fontName}>{font.font}</p>
+            <p className={styles.fontName}>{firstFont}</p>
             <input type="text" placeholder="e.g header-font" className={styles.fontUnderlineInput} value={inputText} onChange={handleChange} />
             <button className={styles.btn} onClick={handleDelete}>Delete Font</button>
         </div>
