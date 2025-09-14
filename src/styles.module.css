@@ -63,6 +63,8 @@ nav {
     padding-bottom:8px;
     display:flex;
     flex-wrap: wrap;
+    max-height: 250px;
+    overflow-y: auto; 
 }
 
 .colorCard {
